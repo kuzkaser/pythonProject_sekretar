@@ -1,0 +1,38 @@
+
+import telegram
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+
+def build_telegram_bot():
+    # вставить токен Telegram Bot
+    bot = telegram.Bot('6672354759:AAF0GVRZg_ojekuA4NSUx_I6dhq3MMPQlEk')
+
+    # Создаем объект средства обновления
+    updater = Updater(bot=bot)
+
+    def start(update, context):
+        # отправляет сообщение пользователю
+        update.message.reply_text('Hi!')
+
+    # обработчик сообщений
+    def echo(update, context):
+        # отправит сообщение  пользователю
+        update.message.reply_text(update.message.text)
+
+
+    updater.dispatcher.add_handler(CommandHandler('start', start))
+
+    # обработчик сообщений
+    updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
+
+    # запуск Bot
+    updater.start_polling()
+
+    #Остановить Ctrl-C
+    updater.idle()
+
+
+def test_build_telegram_bot():
+
+    build_telegram_bot()
+
