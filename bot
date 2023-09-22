@@ -5,7 +5,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 def build_telegram_bot():
     # вставить токен Telegram Bot
-    bot = telegram.Bot('6672354759:AAF0GVRZg_ojekuA4NSUx_I6dhq3MMPQlEk')
+    bot = telegram.Bot('6672354759:xxxxxxxxxxxxxxxxx')
 
     # Создаем объект средства обновления
     updater = Updater(bot=bot)
